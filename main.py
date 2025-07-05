@@ -19,8 +19,8 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-    screen.fill("black") # fill the Surface with a solid color
-    pygame.display.flip() # update the contents of the entire display
+        screen.fill("black") # fill the Surface with a solid color
+        pygame.display.flip() # update the contents of the entire display
 
 
     
