@@ -6,6 +6,8 @@ from constants import *
 
 def main():
     pygame.init()
+    clock = pygame.time.Clock()
+    dt = 0 # delta time
 
     print(f"""
     Starting Asteroids!
@@ -19,12 +21,13 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        screen.fill("black") # fill the Surface with a solid color
-        pygame.display.flip() # update the contents of the entire display
+        # fill the Surface with a solid color
+        screen.fill("black") 
+        # update the contents of the entire display
+        pygame.display.flip() 
 
-
-    
-
+        # limit the framerate to 60 FPS
+        dt = clock.tick(60) / 1000
 
 if __name__ == "__main__":
     main()
