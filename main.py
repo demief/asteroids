@@ -3,6 +3,7 @@
 # throughout this file
 import pygame
 from constants import *
+from player import Player
 
 def main():
     pygame.init()
@@ -23,6 +24,8 @@ def main():
                 return
         # fill the Surface with a solid color
         screen.fill("black") 
+        player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2) 
+        player.draw(screen)
         # update the contents of the entire display
         pygame.display.flip() 
 
