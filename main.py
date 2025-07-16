@@ -23,6 +23,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            
         # rotate player object
         player.update(dt)
         # fill the Surface with a solid color
