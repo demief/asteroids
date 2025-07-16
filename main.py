@@ -8,6 +8,7 @@ from player import Player
 def main():
     pygame.init()
     clock = pygame.time.Clock()
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2) 
     dt = 0 # delta time
 
     print(f"""
@@ -22,9 +23,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        # rotate player object
+        player.update(dt)
         # fill the Surface with a solid color
         screen.fill("black") 
-        player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2) 
+        # draw player (hitbox (triangle(circle))
         player.draw(screen)
         # update the contents of the entire display
         pygame.display.flip() 
