@@ -8,8 +8,16 @@ from player import Player
 def main():
     pygame.init()
     clock = pygame.time.Clock()
+
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
+
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2) 
+
     dt = 0 # delta time
+    
 
     print(f"""
     Starting Asteroids!
@@ -25,11 +33,16 @@ def main():
                 return
             
         # rotate player object
-        player.update(dt)
+        updatable.update(dt)
+
         # fill the Surface with a solid color
         screen.fill("black") 
+
         # draw player (hitbox (triangle(circle))
-        player.draw(screen)
+        for d in drawable:
+            d.draw(screen)
+            # player.draw(screen) // instead of this, we use the drawable because our Player objects are part of the drawable group
+
         # update the contents of the entire display
         pygame.display.flip() 
 
