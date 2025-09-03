@@ -2,6 +2,7 @@
 # the open-source pygame library
 # throughout this file
 import pygame
+import sys
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -20,7 +21,7 @@ def main():
     AsteroidField.containers = (updatable)
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
-    asteroidField = AsteroidField()
+    asteroid_field = AsteroidField()
 
     dt = 0 # delta time
     
@@ -40,6 +41,11 @@ def main():
             
         # rotate player object
         updatable.update(dt)
+
+        for obj in asteroids:
+            if obj.collision(player):
+                print("Game over!")
+                sys.exit()
 
         # fill the Surface with a solid color
         screen.fill("black") 
