@@ -46,10 +46,17 @@ def main():
         # rotate player object
         updatable.update(dt)
 
-        for obj in asteroids:
-            if obj.collision(player):
+        # to check collision between player and asteroids
+        for asteroid in asteroids:
+            if asteroid.collides(player):
                 print("Game over!")
                 sys.exit()
+
+            # to check collision between shots and asteroids
+            for shot in shots:
+                if shot.collides(asteroid):
+                    shot.kill()
+                    asteroid.kill()
 
         # fill the Surface with a solid color
         screen.fill("black") 
