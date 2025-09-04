@@ -56,7 +56,7 @@ def main():
             for shot in shots:
                 if shot.collides(asteroid):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
 
         # fill the Surface with a solid color
         screen.fill("black") 
